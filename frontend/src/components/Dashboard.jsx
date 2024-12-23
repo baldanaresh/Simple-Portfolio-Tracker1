@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+const baseURL = import.meta.env.VITE_API_URL;
 const Dashboard = () => {
   const [stocks, setStocks] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const fetchStocks = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/stocks');
+      const response = await fetch(`${baseURL}/api/stocks`);
       const data = await response.json();
       const stocksWithPrices = await Promise.all(
         data.map(async (stock) => {

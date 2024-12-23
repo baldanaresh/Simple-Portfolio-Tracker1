@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
+const baseURL = import.meta.env.VITE_API_URL;
 const StockForm = () => {
   const [stock, setStock] = useState({
     name: '',
@@ -19,7 +19,7 @@ const StockForm = () => {
 
   const fetchStock = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/stocks/${id}`);
+      const response = await fetch(`${baseURL}/api/stocks/${id}`);
       const data = await response.json();
       setStock(data);
     } catch (error) {
@@ -39,8 +39,8 @@ const StockForm = () => {
     e.preventDefault();
     try {
       const url = id
-        ? `http://localhost:5000/api/stocks/${id}`
-        : 'http://localhost:5000/api/stocks';
+        ? `${baseURL}/api/stocks/${id}`
+        : `${baseURL}/api/stocks`;
       const method = id ? 'PUT' : 'POST';
       await fetch(url, {
         method,
