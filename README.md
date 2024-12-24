@@ -81,3 +81,18 @@ npm start
 The frontend will run on [http://localhost:5173](http://localhost:5173).
 
 ---
+## Running the Application with Docker
+
+### 1. Install Docker and Docker Compose
+
+Ensure you have **Docker** and **Docker Compose** installed on your machine. You can download them from the following links:
+- **Docker**: [https://www.docker.com/get-started](https://www.docker.com/get-started)
+- **Docker Compose**: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+
+### 2. Clone the Repository
+
+If you haven’t already cloned the repository, run the following command to do so:
+
+```bash
+git clone https://github.com/baldanaresh/Simple-Portfolio.git
+cd Simple-Portfolio
