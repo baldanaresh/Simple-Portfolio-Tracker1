@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// const baseURL = import.meta.env.VITE_API_URL;
+const baseURL = import.meta.env.VITE_API_URL;
 const StockList = () => {
   const [stocks, setStocks] = useState([]);
 
@@ -10,7 +10,7 @@ const StockList = () => {
 
   const fetchStocks = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/stocks`);
+      const response = await fetch(`${baseURL}/api/stocks`);
       const data = await response.json();
       setStocks(data);
     } catch (error) {
@@ -20,7 +20,7 @@ const StockList = () => {
 
   const deleteStock = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/stocks/${id}`, {
+      await fetch(`${baseURL}/api/stocks/${id}`, {
         method: 'DELETE',
       });
       fetchStocks();
