@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-const baseURL = import.meta.env.VITE_API_URL;
+// const baseURL = import.meta.env.VITE_API_URL;
 const Dashboard = () => {
   const [stocks, setStocks] = useState([]);
   const [totalValue, setTotalValue] = useState(0);
@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const fetchStocks = async () => {
     try {
-      const response = await fetch(`${baseURL}/api/stocks`);
+      const response = await fetch(`http://localhost:5000/api/stocks`);
       const data = await response.json();
       const stocksWithPrices = await Promise.all(
         data.map(async (stock) => {
@@ -46,7 +46,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-4">Dashboard</h2>
+      <h2 className="text-2xl font-extrabold mb-4 text-green-500 text-center ">Dashboard</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div className="bg-white p-4 rounded shadow">
           <h3 className="text-xl font-semibold mb-2">Total Portfolio Value</h3>
@@ -62,7 +62,7 @@ const Dashboard = () => {
       <Link to="/stocks" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
         View All Stocks
       </Link>
-      
+     
     </div>
   );
 };

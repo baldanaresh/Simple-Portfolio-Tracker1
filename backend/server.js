@@ -58,8 +58,8 @@ app.delete('/api/stocks/:id', async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 });
-console.log(process.env.DATABASE_URL);
+// console.log(process.env.DATABASE_URL)
 
-const PORT = process.env.PORT || 5000;
+const PORT =  5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
