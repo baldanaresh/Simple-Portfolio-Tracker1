@@ -1,18 +1,20 @@
-# Step 1: Use a Node.js base image
-FROM node:16-alpine
+# Use a newer Node.js version
+FROM node:20-alpine
 
-# Step 2: Set the working directory
+# Set the working directory
 WORKDIR /app
 
-# Step 3: Copy package.json and install dependencies
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Step 4: Copy the rest of the application files
+# Copy the entire frontend folder
 COPY . .
 
-# Step 5: Expose the Vite development port (5173)
+# Expose the frontend port
 EXPOSE 5173
 
-# Step 6: Start the Vite development server
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+# Command to run the frontend server
+CMD ["npm", "run", "dev"]
